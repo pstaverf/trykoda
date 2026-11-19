@@ -1,3 +1,7 @@
 name = "icy-field-810f"
 main = "worker.js"
 compatibility_date = "2026-11-19"
+
+rules = [
+  { type = "Text", globs = ["**/*.html", "**/*.css"] }
+]
