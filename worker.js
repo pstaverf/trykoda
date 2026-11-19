@@ -1,5 +1,16 @@
-//try koda, you will genius
-const _0={_1:"PCFkb2N0eXBlIGh0bWw+PGh0bWwgbGFuZz0icnUiPjxoZWFkPjxtZXRhIGNoYXJzZXQ9InV0Zi04Ij48bWV0YSBuYW1lPSJ2aWV3cG9ydCIgY29udGVudD0id2lkdGg9ZGV2aWNlLXdpZHRoLGluaXRpYWwtc2NhbGU9MSx2aWV3cG9ydC1maXQ9Y292ZXIiPjxtZXRhIG5hbWU9ImNvbG9yLXNjaGVtZSIgY29udGVudD0iZGFyayI+PG1ldGEgbmFtZT0idGhlbWUtY29sb3IiIGNvbnRlbnQ9IiMwNzA3MDciPjx0aXRsZT5Lb2RhIOKAlCDRgdC60L7RgNC+PC90aXRsZT48bGluayByZWw9InN0eWxlc2hlZXQiIGhyZWY9Imh0dHBzOi8vY2RuLnRyeWtvZGEuYm9uZC9rZC5jc3MiPjwvaGVhZD48Ym9keT4=",_2:"PGRpdiBjbGFzcz0ieiI+PGRpdiBjbGFzcz0ibyBvMSI+PC9kaXY+PGRpdiBjbGFzcz0ibyBvMiI+PC9kaXY+PGRpdiBjbGFzcz0ibyBvMyI+PC9kaXY+PGRpdiBjbGFzcz0iZyI+PC9kaXY+PC9kaXY+",_3:"PG1haW4gY2xhc3M9InAiPjxzZWN0aW9uIGNsYXNzPSJrIHUgZmkiPjxoMSBjbGFzcz0iaCI+S29kYSDRgdC60L7RgNC+PC9oMT48cCBjbGFzcz0icyI+0JzRiyDQv9GA0L7QtNC+0LvQttCw0LXQvCDRgNCw0LHQvtGC0YMg0L3QsNC0IEtvZGEuPGJyPtCh0L7QstGB0LXQvCDRgdC60L7RgNC+INC+0L0g0YHRgtCw0L3QtdGCINC00L7RgdGC0YPQv9C10L0uPC9wPjxkaXYgY2xhc3M9InN0Ij48c3BhbiBjbGFzcz0iZCI+PC9zcGFuPjxzcGFuPtCSINGA0LDQt9GA0LDQsdC+0YLQutC1PC9zcGFuPjwvZGl2Pjwvc2VjdGlvbj48L21haW4+",_4:"PC9ib2R5PjwvaHRtbD4="};
-const _5=`<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="color-scheme" content="dark"><script>(()=>{const _=p=>new TextDecoder().decode(Uint8Array.from(atob(p),c=>c.charCodeAt(0)));const m=()=>{document.open();document.write(_('${Object.values(_0).join("")}'));document.close()};document.readyState==="loading"?document.addEventListener("DOMContentLoaded",m,{once:true}):m()})();</script></head><body></body></html>`;
-const _6={"content-type":"text/html; charset=utf-8","cache-control":"public, max-age=300","x-content-type-options":"nosniff"};
-export default{async fetch(_7){const _8=new URL(_7.url).pathname,_9=_7.method;return(_9==="GET"||_9==="HEAD")&&(_8==="/"||_8==="/index.html")?new Response(_5,{headers:_6}):new Response("Not Found",{status:404,headers:{"content-type":"text/plain; charset=utf-8"}})}};
+import html from "./index.html";
+import css from "./kd.css";
+
+const H = {
+  html: { "content-type": "text/html; charset=utf-8", "cache-control": "public, max-age=300" },
+  css: { "content-type": "text/css; charset=utf-8", "cache-control": "public, max-age=3600" }
+};
+
+export default {
+  async fetch(req) {
+    const p = new URL(req.url).pathname;
+    if (p === "/" || p === "/index.html") return new Response(html, { headers: H.html });
+    if (p === "/kd.css") return new Response(css, { headers: H.css });
+    return new Response("Not Found", { status: 404 });
+  }
+};
